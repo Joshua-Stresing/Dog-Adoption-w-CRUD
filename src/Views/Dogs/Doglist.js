@@ -26,11 +26,12 @@ export default function ListOfDogs() {
       {error && <p>{error}</p>}
       { dogs.map((dog) => (
         <div key={dog.id}>
-          <div key={dog.id}>
-            <Link to = {`dogs/${dog.id}`}>
-              <h3>{dog.name}</h3>
-            </Link>
-          </div> 
+          
+          <Link to = {`/dogs/${dog.id}`}>
+            <h3>{dog.Name}</h3>
+            <img src = {dog.img}/>
+          </Link>
+           
         </div>
       ))}
     </div>
