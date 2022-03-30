@@ -17,3 +17,11 @@ export async function fetchDogById(id) {
   
   return checkError(data);
 }
+
+export async function addDog(dog) {
+  const data = await client
+    .from('dogs')
+    .insert(dog);
+  
+  return checkError(data);
+}

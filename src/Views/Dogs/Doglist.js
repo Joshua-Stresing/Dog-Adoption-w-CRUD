@@ -12,7 +12,7 @@ export default function ListOfDogs() {
       try {
         const data = await fetchDogs();
         setDogs(data);
-        console.log(data);
+        // console.log(data);
       } catch (error) {
         setError(error.message);
       }
