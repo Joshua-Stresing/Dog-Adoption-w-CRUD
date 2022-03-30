@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-import { fetchDogById } from '../../services/fetchdogs';
+import { useHistory, Link, useParams } from 'react-router-dom';
+import { deleteDog, fetchDogById } from '../../services/fetchdogs';
 
 
 export default function DogDetails() {
@@ -9,7 +8,7 @@ export default function DogDetails() {
   const [error, setError] = useState('');
   const params = useParams();
   const { id } = useParams();
-
+  const history = useHistory(); 
 //   console.log(id);
   
   useEffect(() => {
@@ -26,6 +25,11 @@ export default function DogDetails() {
     fetchData();
   }, [id]);
 
+  const removeDog = async () => {
+    await deleteDog(id);
+    history.push('/');
+  };
+
   return (
     <div className='DogDetails'>
       {error && <p>{error}</p>}
@@ -38,6 +42,7 @@ export default function DogDetails() {
         <p>Bio: {dog.Desc}</p>
         <Link to={`/dogs/${params.id}/edit`}>Edit Dog</Link>     
       </div>
+      <button onClick={removeDog}>Remove Dog</button>
     </div>
   );
 }

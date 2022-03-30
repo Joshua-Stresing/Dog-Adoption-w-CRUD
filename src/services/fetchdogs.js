@@ -25,3 +25,22 @@ export async function addDog(dog) {
   
   return checkError(data);
 }
+
+export async function editDog(dog) {
+  const data = await client
+    .from('dogs')
+    .update(dog)
+    .match({ id: dog.id });
+
+  return checkError(data);
+}
+
+export async function deleteDog(id) {
+  const data = await client
+    .from('dogs')
+    .delete()
+    .match({ id })
+    .single();
+
+  return checkError(data);
+}
