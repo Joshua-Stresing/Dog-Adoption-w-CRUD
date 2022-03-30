@@ -7,17 +7,18 @@ import { addDog } from '../../services/fetchdogs';
 export default function AddDog() {
 
   const [img, setImg] = useState('');
-  const [name, setName] = useState('');
-  const [age, setAge] = useState(null);
-  const [breed, setBreed] = useState('');
-  const [desc, setDesc] = useState('');
+  const [Name, setName] = useState('');
+  const [Age, setAge] = useState('');
+  const [Breed, setBreed] = useState('');
+  const [Desc, setDesc] = useState('');
   const [error, setError] = useState('');
   
   const history = useHistory();
   
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      await addDog({ name, age, desc, breed, img });
+      await addDog({ Name, Age, Desc, Breed, img });
       history.push('/');
     } catch (e) {
       setError('Make sure your fields are filled in.');
@@ -32,13 +33,13 @@ export default function AddDog() {
       )}
       <DogForm
         {...{
-          name,
+          Name,
           setName,
-          age,
+          Age,
           setAge,
-          desc,
+          Desc,
           setDesc,
-          breed,
+          Breed,
           setBreed,
           img,
           setImg,

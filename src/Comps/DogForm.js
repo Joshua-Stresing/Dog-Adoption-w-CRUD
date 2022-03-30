@@ -1,13 +1,13 @@
 import React from 'react';
 
 export default function DogForm({
-  name,
+  Name,
   setName,
-  age,
+  Age,
   setAge,
-  desc,
+  Desc,
   setDesc,
-  breed,
+  Breed,
   setBreed,
   img,
   setImg,
@@ -17,30 +17,30 @@ export default function DogForm({
     <form>
 
       <label>
-        Name:
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        Name
+        <input type="text" value={Name} onChange={(e) => setName(e.target.value)} />
       </label>
 
       <label>
         Age
-        <input type="number" value={age} onChange={(e) => setAge(e.target.value)} />
+        <input type="number" value={Age} onChange={(e) => setAge(e.target.value)} />
       </label>
 
       <label>
         Desc
-        <input type="text" value={desc} onChange={(e) => setDesc(e.target.value)} />
+        <input type="text" value={Desc} onChange={(e) => setDesc(e.target.value)} />
       </label>
 
       <label>
         Breed
-        <input type="text" value={breed} onChange={(e) => setBreed(e.target.value)} />
+        <input type="text" value={Breed} onChange={(e) => setBreed(e.target.value)} />
       </label>
 
       <label>
         Image
         <input type="text" value={img} onChange={(e) => setImg(e.target.value)} />
       </label>
-      
+
       <button onClick={handleSubmit}>Set Dog Info</button>
     </form>
   );
