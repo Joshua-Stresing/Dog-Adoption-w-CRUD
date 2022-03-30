@@ -4,7 +4,7 @@ import DogForm from '../../Comps/DogForm';
 import { addDog } from '../../services/fetchdogs';
 
 
-export default function NewDog() {
+export default function AddDog() {
 
   const [img, setImg] = useState('');
   const [name, setName] = useState('');

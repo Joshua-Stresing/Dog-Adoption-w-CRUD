@@ -2,7 +2,7 @@ import './App.css';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import ListOfDogs from './Views/Dogs/Doglist';
 import DogDetails from './Views/DogDetails/DogDetails';
-import NewDog from './Views/AddDog/AddDog';
+import AddDog from './Views/AddDog/AddDog';
 // import Home from './Views/Main/Home';
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
             <DogDetails />
           </Route>
           <Route exact path="/dogs/new">
-            <NewDog />
+            <AddDog />
           </Route>
         </Switch>
       </BrowserRouter>
