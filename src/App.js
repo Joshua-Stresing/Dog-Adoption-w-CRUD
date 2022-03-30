@@ -10,16 +10,16 @@ function App() {
     <main className='Main'>
       <BrowserRouter>
         <Switch>
-          <Route exact path = "/">
+          <Route exact path="/">
             <ListOfDogs />
           </Route>
-          <Route exact path = "/dogs/:id">
+          <Route exact path="/dogs/:id/edit">
             <DogDetails />
           </Route>
-          <Route exact path = "/dogs/:id/edit">
+          <Route exact path="/dogs/:id">
             <DogDetails />
           </Route>
-          <Route exact path="/dogs/new">
+          <Route exact path="/dog/new">
             <AddDog />
           </Route>
         </Switch>

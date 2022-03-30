@@ -18,7 +18,7 @@ export default function AddDog() {
   const handleSubmit = async () => {
     try {
       await addDog({ name, age, desc, breed, img });
-      history.push('/dogs');
+      history.push('/');
     } catch (e) {
       setError('Make sure your fields are filled in.');
     }
