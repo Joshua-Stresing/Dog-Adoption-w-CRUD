@@ -31,6 +31,7 @@ export default function EditPage() {
   }, [id]);
 
   const handleSubmit = async (e) => {
+
     e.preventDefault();
     try {
       await editDog({ id, Name, Desc, Breed, img, Age });
@@ -39,6 +40,7 @@ export default function EditPage() {
       setError('ya broke it');
     }
   };
+  
   return (
     <div>
       Edit Page
