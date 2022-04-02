@@ -7,6 +7,7 @@ import EditPage from './Views/EditDog/EditDog';
 import Auth from './Views/Auth/Auth';
 import { useState } from 'react';
 import { getUser } from './services/auth';
+import Header from './Comps/Header';
 // import Home from './Views/Main/Home';
 
 function App() {
@@ -15,22 +16,29 @@ function App() {
   return (
     <main className='Main'>
       <BrowserRouter>
+        <Header></Header>
         <Switch>
+
           <Route exact path="/auth">
             <Auth setCurrentUser={setCurrentUser}/>
           </Route>
+
           <Route exact path="/">
             <ListOfDogs />
           </Route>
+
           <Route exact path="/dogs/new">
             {currentUser ? <AddDog /> : <Redirect to = "/auth"/>}
           </Route>
+
           <Route exact path="/dogs/:id/edit">
             {currentUser ? <EditPage /> : <Redirect to = "/auth"/>}
           </Route>
+
           <Route exact path="/dogs/:id">
             <DogDetails />
           </Route>
+          
         </Switch>
       </BrowserRouter>
     </main>
