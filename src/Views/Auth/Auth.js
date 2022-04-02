@@ -17,7 +17,6 @@ export default function Auth({ setCurrentUser }) {
       setCurrentUser(resp.email);
       history.push('/');
     } catch (e) {
-      console.log(e);
       setError(e.message);
     }
   };
