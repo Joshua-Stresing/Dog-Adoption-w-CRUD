@@ -35,6 +35,7 @@ export default function EditPage() {
     e.preventDefault();
     try {
       await editDog({ id, Name, Desc, Breed, img, Age });
+      alert('Edit Good');
       history.push(`/dogs/${id}`);
     } catch (e) {
       setError('ya broke it');

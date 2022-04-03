@@ -3,9 +3,11 @@ import { useHistory, Link, useParams } from 'react-router-dom';
 import { deleteDog, fetchDogById } from '../../services/fetchdogs';
 
 
-export default function DogDetails() {
+export default function DogDetails({ currentUser }) {
   const [dog, setDog] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState('');
+
   const params = useParams();
   const { id } = useParams();
   const history = useHistory(); 
@@ -15,9 +17,8 @@ export default function DogDetails() {
     const fetchData = async () => {
       try {
         const data = await fetchDogById(id);
-        // console.log(data); 
         setDog(data);
-
+        setLoading(false);
       } catch (error) {
         setError(error.message);
       }
@@ -30,6 +31,8 @@ export default function DogDetails() {
     history.push('/');
   };
 
+  if (loading) return <h1>Loading Details</h1>;
+
   return (
     <div className='DogDetails'>
       {error && <p>{error}</p>}
@@ -40,9 +43,15 @@ export default function DogDetails() {
         <p>Age: {dog.Age}</p>     
         <p>Breed: {dog.Breed}</p>     
         <p>Bio: {dog.Desc}</p>
-        <Link to={`/dogs/${params.id}/edit`}>Edit Dog</Link>     
       </div>
+      
+      {currentUser &&
+    <>
+      <Link to={`/dogs/${params.id}/edit`}>Edit Dog</Link>     
       <button onClick={removeDog}>Remove Dog</button>
+    </>
+      }
+
     </div>
   );
 }

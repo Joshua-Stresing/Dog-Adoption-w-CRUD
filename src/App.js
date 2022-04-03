@@ -16,7 +16,7 @@ function App() {
   return (
     <main className='Main'>
       <BrowserRouter>
-        <Header></Header>
+        <Header currentUser={currentUser} setCurrentUser={setCurrentUser}></Header>
         <Switch>
 
           <Route exact path="/auth">
@@ -36,9 +36,9 @@ function App() {
           </Route>
 
           <Route exact path="/dogs/:id">
-            <DogDetails />
+            <DogDetails currentUser={currentUser} />
           </Route>
-          
+
         </Switch>
       </BrowserRouter>
     </main>

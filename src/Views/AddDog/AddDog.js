@@ -19,6 +19,7 @@ export default function AddDog() {
     e.preventDefault();
     try {
       await addDog({ Name, Age, Desc, Breed, img });
+      alert('Added Good');
       history.push('/');
     } catch (e) {
       setError('Make sure your fields are filled in.');

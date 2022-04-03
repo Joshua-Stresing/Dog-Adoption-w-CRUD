@@ -6,19 +6,22 @@ import { fetchDogs } from '../../services/fetchdogs';
 export default function ListOfDogs() {
   const [dogs, setDogs] = useState([]);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await fetchDogs();
         setDogs(data);
-        // console.log(data);
+        setLoading(false);
       } catch (error) {
         setError(error.message);
       }
     };
     fetchData();
   }, []);
+
+  if (loading) return <h1>Loading list od Dogs</h1>;
 
   return (      
     <div className='Doglist'>
