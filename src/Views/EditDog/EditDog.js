@@ -11,6 +11,7 @@ export default function EditPage() {
   const [Breed, setBreed] = useState('');
   const [Desc, setDesc] = useState('');
   const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
   
 
   const history = useHistory(); 
@@ -35,7 +36,7 @@ export default function EditPage() {
     e.preventDefault();
     try {
       await editDog({ id, Name, Desc, Breed, img, Age });
-      alert('Edit Good');
+      setMessage('Edit Good');
       history.push(`/dogs/${id}`);
     } catch (e) {
       setError('ya broke it');
@@ -44,6 +45,7 @@ export default function EditPage() {
   
   return (
     <div>
+      {message}
       Edit Page
       {error && <p>{error}</p>}
       <DogForm

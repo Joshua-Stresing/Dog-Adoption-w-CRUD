@@ -6,7 +6,7 @@ import { deleteDog, fetchDogById } from '../../services/fetchdogs';
 export default function DogDetails({ currentUser }) {
   const [dog, setDog] = useState('');
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState('');
+  const [loading, setLoading] = useState(true);
 
   const params = useParams();
   const { id } = useParams();
@@ -44,7 +44,7 @@ export default function DogDetails({ currentUser }) {
         <p>Breed: {dog.Breed}</p>     
         <p>Bio: {dog.Desc}</p>
       </div>
-      
+
       {currentUser &&
     <>
       <Link to={`/dogs/${params.id}/edit`}>Edit Dog</Link>     

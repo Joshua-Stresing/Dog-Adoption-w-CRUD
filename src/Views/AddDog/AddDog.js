@@ -12,14 +12,16 @@ export default function AddDog() {
   const [Breed, setBreed] = useState('');
   const [Desc, setDesc] = useState('');
   const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
   
+
   const history = useHistory();
   
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await addDog({ Name, Age, Desc, Breed, img });
-      alert('Added Good');
+      setMessage('Added Good');
       history.push('/');
     } catch (e) {
       setError('Make sure your fields are filled in.');
@@ -27,6 +29,7 @@ export default function AddDog() {
   };
   return (
     <div>
+      {message}
       {error && (
         <p>
           {error} <span onClick={() => setError('')}>Testing Error</span>
