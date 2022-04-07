@@ -22,7 +22,8 @@ export default function AddDog() {
     try {
       await addDog({ Name, Age, Desc, Breed, img });
       setMessage('Added Good');
-      history.push('/');
+      setTimeout(() => history.push(`/`), 5000);
+      // history.push('/');
     } catch (e) {
       setError('Make sure your fields are filled in.');
     }
